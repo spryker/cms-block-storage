@@ -117,11 +117,6 @@ class CmsBlockStorageWriter implements CmsBlockStorageWriterInterface
         $this->isSendingToQueue = $isSendingToQueue;
     }
 
-    /**
-     * @param array $cmsBlockIds
-     *
-     * @return void
-     */
     public function publish(array $cmsBlockIds): void
     {
         $cmsBlockEntities = $this->findCmsBlockEntities($cmsBlockIds);
@@ -205,11 +200,6 @@ class CmsBlockStorageWriter implements CmsBlockStorageWriterInterface
         }
     }
 
-    /**
-     * @param \Orm\Zed\CmsBlockStorage\Persistence\SpyCmsBlockStorage $cmsBlockStorageEntity
-     *
-     * @return void
-     */
     protected function deleteStorageEntity(SpyCmsBlockStorage $cmsBlockStorageEntity): void
     {
         if (!$cmsBlockStorageEntity->isNew()) {
@@ -217,14 +207,6 @@ class CmsBlockStorageWriter implements CmsBlockStorageWriterInterface
         }
     }
 
-    /**
-     * @param array $cmsBlockEntity
-     * @param \Orm\Zed\CmsBlockStorage\Persistence\SpyCmsBlockStorage $cmsBlockStorageEntity
-     * @param string $storeName
-     * @param string $localeName
-     *
-     * @return void
-     */
     protected function updateStoreData(
         array $cmsBlockEntity,
         SpyCmsBlockStorage $cmsBlockStorageEntity,
@@ -296,11 +278,6 @@ class CmsBlockStorageWriter implements CmsBlockStorageWriterInterface
         return $mappedCmsBlockStorageEntities;
     }
 
-    /**
-     * @param array $cmsBlockIds
-     *
-     * @return array
-     */
     protected function findCmsBlockEntities(array $cmsBlockIds): array
     {
         return $this->queryContainer->queryBlockWithRelationsByIds($cmsBlockIds)->find()->getData();
@@ -316,12 +293,6 @@ class CmsBlockStorageWriter implements CmsBlockStorageWriterInterface
         return $this->queryContainer->queryCmsBlockStorageEntities($cmsBlockIds)->find()->getArrayCopy();
     }
 
-    /**
-     * @param array $mappedCmsBlockStorageEntities
-     * @param array $pairs
-     *
-     * @return array
-     */
     protected function pairRemainingCmsBlockStorageEntities(array $mappedCmsBlockStorageEntities, array $pairs): array
     {
         array_walk_recursive($mappedCmsBlockStorageEntities, function (SpyCmsBlockStorage $cmsBlockStorageEntity) use (&$pairs) {

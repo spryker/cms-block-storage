@@ -36,11 +36,6 @@ class CmsBlockGlossaryKeyMappingBlockStorageUnpublishListener extends AbstractPl
         $this->getFacade()->unpublish($cmsBlockIds);
     }
 
-    /**
-     * @param array $eventTransfers
-     *
-     * @return array
-     */
     public function findCmsBlockIds(array $eventTransfers): array
     {
         return $this->getFactory()

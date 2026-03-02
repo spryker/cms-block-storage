@@ -17,17 +17,11 @@ use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
  */
 class CmsBlockStoragePersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Orm\Zed\CmsBlockStorage\Persistence\SpyCmsBlockStorageQuery
-     */
     public function createSpyCmsBlockStorage(): SpyCmsBlockStorageQuery
     {
         return SpyCmsBlockStorageQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\CmsBlock\Persistence\SpyCmsBlockQuery
-     */
     public function createCmsBlockQuery(): SpyCmsBlockQuery
     {
         return SpyCmsBlockQuery::create();

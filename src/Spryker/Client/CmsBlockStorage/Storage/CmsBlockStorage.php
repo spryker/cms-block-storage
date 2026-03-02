@@ -221,14 +221,6 @@ class CmsBlockStorage implements CmsBlockStorageInterface
         return $blockKeys;
     }
 
-    /**
-     * @param string $blockKey
-     * @param string $resourceName
-     * @param string $localeName
-     * @param string $storeName
-     *
-     * @return string
-     */
     protected function generateKey(string $blockKey, string $resourceName, string $localeName, string $storeName): string
     {
         $synchronizationDataTransfer = new SynchronizationDataTransfer();

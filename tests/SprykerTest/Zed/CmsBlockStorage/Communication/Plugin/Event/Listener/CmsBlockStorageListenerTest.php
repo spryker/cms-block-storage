@@ -55,9 +55,6 @@ class CmsBlockStorageListenerTest extends Unit
      */
     protected $localeIds;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -68,9 +65,6 @@ class CmsBlockStorageListenerTest extends Unit
         $this->localeIds = $this->getLocaleIds();
     }
 
-    /**
-     * @return void
-     */
     public function testCmsBlockStorageUnpublishListener(): void
     {
         // Arrange
@@ -92,9 +86,6 @@ class CmsBlockStorageListenerTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testCmsBlockStoragePublishListener(): void
     {
         // Arrange
@@ -115,9 +106,6 @@ class CmsBlockStorageListenerTest extends Unit
         $this->assertCmsBlockStorage($beforeCount, $cmsBlockTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testCmsBlockGlossaryKeyMappingBlockStoragePublishListener(): void
     {
         // Arrange
@@ -140,9 +128,6 @@ class CmsBlockStorageListenerTest extends Unit
         $this->assertCmsBlockStorage($beforeCount, $cmsBlockTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testCmsBlockGlossaryKeyMappingBlockStorageUnpublishListener(): void
     {
         // Arrange
@@ -176,9 +161,6 @@ class CmsBlockStorageListenerTest extends Unit
         $this->assertEquals($beforeCount, $afterCount);
     }
 
-    /**
-     * @return \Spryker\Zed\CmsBlockStorage\Business\CmsBlockStorageFacade
-     */
     protected function getCmsBlockStorageFacade(): CmsBlockStorageFacade
     {
         $factory = new CmsBlockStorageBusinessFactory();
@@ -190,9 +172,6 @@ class CmsBlockStorageListenerTest extends Unit
         return $facade;
     }
 
-    /**
-     * @return \Spryker\Zed\Store\Business\StoreFacadeInterface
-     */
     public function getStoreFacade(): StoreFacadeInterface
     {
         return $this->tester->getLocator()->store()->facade();
@@ -234,12 +213,6 @@ class CmsBlockStorageListenerTest extends Unit
         return array_unique($localeIds);
     }
 
-    /**
-     * @param int $beforeCount
-     * @param \Generated\Shared\Transfer\CmsBlockTransfer $cmsBlockTransfer
-     *
-     * @return void
-     */
     protected function assertCmsBlockStorage(int $beforeCount, CmsBlockTransfer $cmsBlockTransfer): void
     {
         $count = SpyCmsBlockStorageQuery::create()->count();
